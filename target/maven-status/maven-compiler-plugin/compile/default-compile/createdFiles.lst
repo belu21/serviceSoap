@@ -1,0 +1,7 @@
+tigo\com\bo\proxyondemand\Proxyondemand.class
+tigo\com\bo\proxyondemand\Ondemand.class
+tigo\com\bo\proxyondemand\Proxyondemand_Service.class
+tigo\com\bo\proxyondemand\beans\CamelProcessor.class
+tigo\com\bo\proxyondemand\ObjectFactory.class
+tigo\com\bo\proxyondemand\OndemandResponse.class
+tigo\com\bo\proxyondemand\package-info.class
