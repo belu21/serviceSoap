@@ -56,7 +56,7 @@
  <!--Define service -->
   <wsdl:service name="proxyondemand">
     <wsdl:port binding="tns:proxyondemandSOAP" name="proxyondemandSOAP">
-      <soap:address location="http://www.example.org/"/>
+      <soap:address location="http://localhost:8181/cxf/proxyondemand/learn"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

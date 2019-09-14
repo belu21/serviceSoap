@@ -5,27 +5,16 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd       http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf-2.8.3.xsd">
 
 
-
-<cxf:cxfEndpoint address="/proxyondemand/learn"
-                     endpointName="tns:proxyondemandSOAP" id="to_onDemandProxyAPI"
-                     serviceName="tns:proxyondemand"
-                     wsdlURL="/wsdl/test.wsdl" xmlns:tns="http://bo.com.tigo/proxyondemand/">
-        <cxf:properties>
-            <entry key="dataFormat" value="PAYLOAD"/>
-        </cxf:properties>
-        <!--cxf:inInterceptors>
-            <bean class="org.apache.cxf.interceptor.LoggingInInterceptor"/>
-        </cxf:inInterceptors>
-        <cxf:outInterceptors>
-            <bean class="org.apache.cxf.interceptor.LoggingOutInterceptor"/>
-        </cxf:outInterceptors-->
-    </cxf:cxfEndpoint>
-
-
-
 	
+	//define a cxfEndpoint for the wsdl
+	<cxf:cxfEndpoint id="to_onDemandProxyAPI" address="/proxyondemand/learn"
+		endpointName="a:proxyondemandSOAP" serviceName="a:proxyondemand"
+		wsdlURL="wsdl/test.wsdl"  serviceClass="tigo.com.bo.proxyondemand.Proxyondemand"
+		xmlns:a="http://bo.com.tigo/proxyondemand/Ondemand"/>
 
 	<bean id="processor" class="tigo.com.bo.proxyondemand.beans.CamelProcessor" />
+	//camel route for processing the input
+	
 	<camelContext id="camelId" xmlns="http://camel.apache.org/schema/spring">
 
 		<camel:route id="bookTicket">
@@ -34,4 +23,8 @@
 		</camel:route>
 
 	</camelContext>
+//----------------------------------------------
+	
+	
+
 </beans>
